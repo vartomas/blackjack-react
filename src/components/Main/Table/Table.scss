@@ -1,0 +1,16 @@
+.table {
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+
+    overflow: hidden;
+
+    .dealer-circle {
+        position: absolute;
+
+        background: #00913A;
+        border: 20px solid #EBFF00;
+        border-radius: 50%;
+    }
+}

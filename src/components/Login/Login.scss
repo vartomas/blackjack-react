@@ -1,0 +1,86 @@
+.login-container {
+    width: 300px;
+
+    background: #00903A;
+    border-radius: 5px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    box-shadow: 0 0 100px 0 rgba(255, 255, 255, 1);
+}
+
+.login-logo-container {
+    width: 100px;
+    height: 100px;
+    margin: 20px 0;
+
+    background: #FFFFFF;
+    border: 3px solid #006C0B;
+    border-radius: 50%;
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        width: 70%;
+        height: auto;
+    }
+}
+
+form {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    input {
+        width: 90%;
+        margin: 5px 0;
+        padding: 6px;
+
+        font-size: 16px;
+
+        outline: none;
+        border: none;
+        box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.25);
+    }
+
+    .submit-btn {
+        width: 40%;
+        margin: 6px 0;
+        padding: 6px;
+
+        font-size: 16px;
+        
+        box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.25);
+
+        cursor: pointer;
+    }
+
+    .wrongInput {
+        color: white;
+    }
+}
+
+.donthave-text {
+    width: 100%;
+    margin: 20px 0;
+
+    color: white;
+    text-align: center;
+
+    .registerBtn {
+        cursor: pointer;
+    }
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

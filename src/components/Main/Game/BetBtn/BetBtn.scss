@@ -1,0 +1,22 @@
+.bet-btn {
+    width: 60px;
+    height: 60px;
+    margin: 0 12px;
+
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+
+    color: white;
+    font-size: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: background .2s ease;
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.3);
+        cursor: pointer;
+    }
+}

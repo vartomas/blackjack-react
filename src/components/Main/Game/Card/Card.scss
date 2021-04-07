@@ -1,0 +1,17 @@
+.card {
+    width: fit-content;
+    height: fit-content;
+
+    margin: 0 0 0 -70px;
+
+    background: white;
+    border-radius: 6px;
+    border: 1px solid black;
+
+    transform: rotateY(90deg);
+    transition: transform .3s ease;
+
+    img {
+        width: 100px;
+    }
+}

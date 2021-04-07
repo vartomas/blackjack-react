@@ -1,0 +1,126 @@
+.game-board {
+    width: 100%;
+    height: 100%;
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .dealer-area {
+        height: 50%;
+        width: 100%;
+        max-width: 400px;
+        padding: 0 0 0 70px;
+
+        position: relative;
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .player-area {
+        height: 50%;
+        width: 100%;
+        max-width: 400px;
+        padding: 0 0 0 70px;
+
+        position: relative;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .player-bets-area {
+            width: 100%;
+            padding: 12px;
+        
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+
+.player-btns {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+
+    width: 100%;
+    padding: 6px 24px;
+
+    display: flex;
+    justify-content: space-between;
+
+    button {
+        width: 40%;
+        padding: 12px;
+
+        font-size: 1.5em;
+
+        background-color: rgb(35, 168, 79);
+        border: 2px solid yellow;
+        outline: none;
+        border-radius: 12px;
+        box-shadow: 7px 7px 7px 0 rgba(0, 0, 0, 0.3);
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgb(31, 141, 68);
+        }
+
+        &:active {
+            background-color: rgb(150, 170, 35);
+        }
+    }
+}
+
+.dealer-points {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px;
+
+    border-radius: 6px;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+}
+
+.player-points {
+    position: absolute;
+    top: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px;
+
+    border-radius: 6px;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
+}
+
+.palce-bet {
+    position: absolute;
+    top: 87%;
+    width: 100%;
+    text-align: center;
+
+    color: white;
+    font-size: 1.2em;
+}
+
+.end-message {
+    position: absolute;
+    top: 60%;
+    font-weight: 600;
+    color: white;
+    font-size: 1.5em;
+}
