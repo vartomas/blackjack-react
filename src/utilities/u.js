@@ -102,6 +102,51 @@ const u = {
         } catch (e) {
             console.log(e)
         }
+    },
+    async createGuest() { // post to createGuest endpoint
+        try {
+            const response = await fetch('http://localhost:5000/user/createguest', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            if (response.status !== 200) throw new Error(response.json)
+            const createdUser = await response.json()
+            return createdUser.email
+        } catch (e) {
+            console.log(e)
+        }
+    },
+    async postHistory(data) {
+        try {
+            const response = await fetch('http://localhost:5000/history/create', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    token: this.getLocal('token')
+                },
+                body: JSON.stringify(data)
+            })
+            if (response.status !== 200) throw new Error(response.json)
+        }   catch (e) {
+            console.log(e)
+        }
+    },
+    async getHistory(limit) {
+        try {
+            const response = await fetch(`http://localhost:5000/history?limit=${limit}`, {
+                method: 'GET',
+                headers: {
+                    'Content-type': 'application/json',
+                    token: this.getLocal('token')
+                }
+            })
+            if (response.status !== 200) throw new Error(response.json)
+            return await response.json()
+        } catch (e) {
+            console.log(e)
+        }
     }
 }
 

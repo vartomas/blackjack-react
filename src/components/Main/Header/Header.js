@@ -4,7 +4,7 @@ import './Header.scss'
 import { userContext } from '../../../App'
  
 const Header = ({ openUserMenu }) => {
-    const {user, setUser} = useContext(userContext)
+    const { user } = useContext(userContext)
     return (
         <div className='header'>
             <h3>{user.username}</h3>

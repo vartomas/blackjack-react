@@ -19,7 +19,12 @@ const Login = (props) => {
 
     const handleLoginSubmit = async e => {
         e.preventDefault()
-        const token = await u.login(inputs.loginEmail, inputs.loginPassword)
+        let token
+        if (!inputs.loginEmail && !inputs.loginPassword) {  // sukuriu nauja juzeri jeigu niekas neivesta login formoje
+            const email = await u.createGuest()
+            const password = 'guest123'
+            token = await u.login(email, password)
+        } else token = await u.login(inputs.loginEmail, inputs.loginPassword)
         if (!token) {
             setInputs({...inputs, loginNotification: 'Wrong email or password'})
             return

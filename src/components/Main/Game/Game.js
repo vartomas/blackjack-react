@@ -78,10 +78,11 @@ const Game = () => {
     }
 
     useEffect(() => {
+        if (endMessage) return
         if (dealerValue > 21) return gameEnd(false, true)
         if (standState) {
             setTimeout(() => {
-                if (dealerValue < 18) {drawCard('dealer')} else gameEnd()
+                if (dealerValue < 18) {drawCard('dealer')} else return gameEnd()
             }, 500)}
     }, [standState, dealerValue])
 
@@ -101,8 +102,21 @@ const Game = () => {
         if (playerValue === dealerValue) return draw()
     }
 
+    const sendHistory = result => {
+        const data = {
+            playerHand: [...playerCards],
+            dealerHand: [...dealerCards],
+            creditsBefore: user.credits + bet,
+            playerBet: bet,
+            creditsAfter: result === 'draw' ? user.credits + bet : result === 'win' ? user.credits + bet * 2 : user.credits,
+            result: result
+        }
+        u.postHistory(data)
+    }
+
     const win = async () => {
         setEndMessage('YOU WIN')
+        sendHistory('win')
         const response = await u.updateCredits(user.credits + bet * 2)
         setUser({
             ...user,
@@ -114,6 +128,7 @@ const Game = () => {
 
     const lose = async () => {
         setEndMessage('YOU LOST')
+        sendHistory('lose')
         const response = await u.updateCredits(user.credits)
         setUser({
             ...user,
@@ -125,6 +140,7 @@ const Game = () => {
 
     const draw = () => {
         setEndMessage('DRAW')
+        sendHistory('draw')
         setUser({
             ...user,
             credits: user.credits + bet

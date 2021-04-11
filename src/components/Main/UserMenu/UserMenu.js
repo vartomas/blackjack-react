@@ -1,6 +1,7 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import './UserMenu.scss'
 import MenuBtn from './MenuBtn/MenuBtn'
+import History from './History/History'
 import { X } from "phosphor-react"
 import { userContext } from '../../../App'
 import emptyAvatar from '../../../assets/empty-avatar.png'
@@ -9,12 +10,22 @@ import u from '../../../utilities/u'
 const UserMenu = ({ userMenu, handleLogout, closeUserMenu }) => {
     const {user, setUser} = useContext(userContext)
 
+    const [historyOpen, setHistoryOpen] = useState(false)
+
     const getCredits = async () => {
         const response = await u.updateCredits(1000)
         setUser({
             ...user,
             credits: response
         })
+    }
+
+    const openHistory = () => {
+        setHistoryOpen(true)
+    }
+
+    const closeHistory = () => {
+        setHistoryOpen(false)
     }
 
     return (
@@ -29,13 +40,14 @@ const UserMenu = ({ userMenu, handleLogout, closeUserMenu }) => {
             </div>
             <div className='menu-btns-container'>
                 <MenuBtn text='Get 1000 credits' action={getCredits}/>
-                <MenuBtn text='Hand history'/>
+                <MenuBtn text='Hand history' action={openHistory}/>
                 <MenuBtn text='Achievements'/>
             </div>
             <MenuBtn text='Log out' action={handleLogout}/>
             <div className='colse-user-menu' onClick={closeUserMenu}>
                 <X size={36} style={{color: 'white'}}/>
             </div>
+            <History open={historyOpen} close={closeHistory}/>
         </div>
     )
 }
